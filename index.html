@@ -260,6 +260,22 @@
   }
   .closing .sig b{color:var(--ink);font-weight:500;display:block;margin-bottom:4px}
 
+  /* —— List & channel titles use Inter (body sans), not Power Grotesk —— */
+  .list > li .t,
+  .list.flat > li .t,
+  .preroll ol li .ttl,
+  .formats .fmt .channel{
+    font-family:var(--sans);
+    font-weight:500;
+    letter-spacing:-.005em;
+  }
+  .list > li .t em,
+  .preroll ol li .ttl em,
+  .formats .fmt .channel em{
+    font-style:italic;
+    font-weight:500;
+  }
+
   /* —— Responsive —— */
   @media (max-width:980px){
     .shell{padding:36px 40px 64px}

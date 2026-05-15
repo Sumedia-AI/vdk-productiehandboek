@@ -3,35 +3,23 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>VDK · Productiehandboek Video — Uitgave 01</title>
+<title>Kwaliteitsrichtlijnen Video — VDK Groep</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    /* Paper system — single warm neutral family */
     --paper:        oklch(0.955 0.010 78);
     --paper-2:      oklch(0.928 0.012 76);
-    --paper-edge:   oklch(0.890 0.014 74);
 
-    /* Ink hierarchy */
     --ink:          oklch(0.205 0.014 60);
     --ink-2:        oklch(0.370 0.012 62);
     --ink-soft:     oklch(0.570 0.010 70);
 
-    /* Rules — single line system */
     --rule:         oklch(0.205 0.014 60 / .18);
     --rule-strong:  oklch(0.205 0.014 60 / .42);
-    --hair:         oklch(0.205 0.014 60 / .08);
 
-    /* One accent only — deep clay (used sparingly) */
     --mark:         oklch(0.46 0.082 38);
-    --mark-soft:    oklch(0.46 0.082 38 / .12);
-
-    /* Single dark surface — only for hero anchor */
-    --inkpanel:     oklch(0.175 0.012 60);
-    --on-ink:       oklch(0.92 0.012 76);
-    --on-ink-soft:  oklch(0.68 0.010 70);
 
     --serif: "Instrument Serif", "Iowan Old Style", "Hoefler Text", Georgia, serif;
     --sans:  "Geist", ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
@@ -41,9 +29,7 @@
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
   html{scroll-behavior:smooth}
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto}
-  }
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
   body{
     background:var(--paper);
     color:var(--ink);
@@ -57,139 +43,43 @@
   ::selection{background:var(--ink);color:var(--paper)}
   a{color:inherit;text-decoration:none}
 
-  /* —— Shell —— */
   .shell{
     max-width:1180px;
     margin:0 auto;
     padding:64px 64px 96px;
   }
 
-  /* —— Top colophon —— */
+  /* —— Colophon —— */
   .colophon{
-    display:grid;
-    grid-template-columns:1fr auto;
-    align-items:baseline;
-    padding-bottom:24px;
-    border-bottom:1px solid var(--rule);
-    gap:24px;
+    display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:24px;
+    padding-bottom:24px;border-bottom:1px solid var(--rule);
   }
-  .colophon .mark{
-    font-family:var(--serif);
-    font-size:22px;
-    letter-spacing:-.005em;
-    line-height:1;
-    color:var(--ink);
-  }
+  .colophon .mark{font-family:var(--serif);font-size:22px;letter-spacing:-.005em;line-height:1;color:var(--ink)}
   .colophon .mark em{font-style:italic;color:var(--ink-2);font-weight:400}
-  .colophon .meta{
-    font-family:var(--mono);
-    font-size:11px;
-    letter-spacing:.08em;
-    color:var(--ink-soft);
-    text-transform:uppercase;
-  }
+  .colophon .meta{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink-soft);text-transform:uppercase}
   .colophon .meta span + span{margin-left:24px}
   .colophon .meta b{font-weight:500;color:var(--ink)}
 
   /* —— Hero —— */
-  .hero{padding:96px 0 56px}
-  .hero .stamp{
-    font-family:var(--mono);
-    font-size:11px;
-    letter-spacing:.14em;
-    color:var(--ink-soft);
-    text-transform:uppercase;
-    margin-bottom:36px;
-    display:flex;align-items:center;gap:14px;
-  }
-  .hero .stamp::before{
-    content:"";display:inline-block;width:24px;height:1px;background:var(--mark);
-  }
+  .hero{padding:120px 0 88px;display:grid;grid-template-columns:1fr;gap:28px}
   .hero h1{
-    font-family:var(--serif);
-    font-weight:400;
-    font-size:clamp(44px, 5.8vw, 92px);
-    line-height:1.02;
-    letter-spacing:-.018em;
-    margin:0;
-    color:var(--ink);
-    width:80%;
-    max-width:920px;
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(56px, 7.6vw, 132px);
+    line-height:.96;letter-spacing:-.022em;
+    margin:0;color:var(--ink);
+    width:80%;max-width:980px;
   }
   .hero h1 .it{font-style:italic}
-  .hero .sub{
-    margin:32px 0 0;
-    font-size:18px;
-    line-height:1.55;
-    color:var(--ink-2);
-    max-width:54ch;
+  .hero .author{
+    display:flex;align-items:center;gap:16px;
+    font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);
   }
-
-  /* Hero anchor — one quiet dark frame */
-  .anchor{
-    margin-top:72px;
-    background:var(--inkpanel);
-    color:var(--on-ink);
-    aspect-ratio:21/9;
-    position:relative;
-    padding:32px;
-    display:flex;
-    align-items:flex-end;
-    justify-content:space-between;
-  }
-  .anchor .tag{
-    position:absolute;left:32px;top:32px;
-    font-family:var(--mono);
-    font-size:11px;letter-spacing:.16em;
-    color:var(--on-ink-soft);text-transform:uppercase;
-  }
-  .anchor .meta{
-    position:absolute;right:32px;top:32px;
-    font-family:var(--mono);
-    font-size:11px;letter-spacing:.16em;
-    color:var(--on-ink-soft);text-transform:uppercase;
-  }
-  .anchor .title{
-    font-family:var(--serif);
-    font-size:clamp(22px, 2.4vw, 30px);
-    line-height:1.15;
-    color:var(--on-ink);
-    max-width:62%;
-    letter-spacing:-.01em;
-  }
-  .anchor .title em{font-style:italic}
-  .anchor .ratio{
-    font-family:var(--mono);
-    font-size:11px;letter-spacing:.16em;
-    color:var(--on-ink-soft);text-transform:uppercase;
-    align-self:flex-end;
-  }
-
-  /* —— Lede —— */
-  .lede{
-    margin:88px 0 0;
-    padding-top:32px;
-    border-top:1px solid var(--rule);
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:64px;
-    align-items:start;
-  }
-  .lede .label{
-    font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase;
-  }
-  .lede p{
-    margin:0;
-    font-family:var(--serif);
-    font-size:22px;
-    line-height:1.4;
-    color:var(--ink);
-    max-width:38ch;
-  }
+  .hero .author::before{content:"";width:32px;height:1px;background:var(--mark)}
+  .hero .author b{color:var(--ink);font-weight:500}
 
   /* —— Index —— */
   .index{
-    margin:96px 0 0;
+    margin:48px 0 0;
     border-top:1px solid var(--rule-strong);
   }
   .index .heading{
@@ -197,50 +87,30 @@
     padding:18px 0 8px;
     font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase;
   }
-  .index ol{
-    list-style:none;margin:0;padding:0;
-    border-top:1px solid var(--rule);
-  }
+  .index ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
   .index li{border-bottom:1px solid var(--rule)}
   .index li a{
-    display:grid;
-    grid-template-columns:60px 1fr auto;
-    gap:24px;
-    align-items:baseline;
-    padding:20px 0;
-    color:inherit;text-decoration:none;
+    display:grid;grid-template-columns:60px 1fr;gap:24px;align-items:baseline;
+    padding:20px 0;color:inherit;text-decoration:none;
     transition:padding 320ms cubic-bezier(.22,1,.36,1), color 320ms;
   }
   .index li a:hover{padding-left:16px;padding-right:16px}
   .index li a:hover .tt{color:var(--mark)}
   .index li a:focus-visible{outline:1px solid var(--mark);outline-offset:-1px}
-  .index .rn{
-    font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--ink-soft);text-transform:uppercase;
-  }
+  .index .rn{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--ink-soft);text-transform:uppercase}
   .index .tt{
     font-family:var(--serif);font-size:24px;letter-spacing:-.008em;color:var(--ink);line-height:1.1;
     transition:color 320ms cubic-bezier(.22,1,.36,1);
   }
-  .index .pg{
-    font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink-soft);text-transform:uppercase;
-  }
 
-  /* —— Section header —— */
-  .sect{
-    padding:120px 0 0;
-    scroll-margin-top:32px;
-  }
+  /* —— Section —— */
+  .sect{padding:120px 0 0;scroll-margin-top:32px}
   .sect-head{
-    display:grid;
-    grid-template-columns:120px 1fr;
-    gap:48px;
-    align-items:baseline;
-    padding-bottom:48px;
-    border-bottom:1px solid var(--rule);
+    display:grid;grid-template-columns:120px 1fr;gap:48px;align-items:baseline;
+    padding-bottom:40px;border-bottom:1px solid var(--rule);
   }
-  .sect-head .rn{
-    font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--ink-soft);text-transform:uppercase;
-    padding-top:14px;
+  .sect-head .num{
+    font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--ink-soft);text-transform:uppercase;padding-top:14px;
   }
   .sect-head h2{
     font-family:var(--serif);font-weight:400;
@@ -249,246 +119,98 @@
     margin:0;color:var(--ink);
   }
   .sect-head h2 .it{font-style:italic}
-  .sect-head .dek{
+  .sect-head .lede{
     grid-column:2;
-    font-size:17px;line-height:1.55;color:var(--ink-2);
-    margin:18px 0 0;max-width:58ch;
+    font-family:var(--serif);font-style:italic;
+    font-size:20px;line-height:1.4;color:var(--ink-2);
+    margin:18px 0 0;max-width:62ch;
   }
 
-  /* —— Section body container —— */
-  .sect-body{
-    padding:56px 0 0;
-    display:grid;
-    grid-template-columns:120px 1fr;
-    gap:48px;
-  }
+  .sect-body{padding:48px 0 0;display:grid;grid-template-columns:120px 1fr;gap:48px}
   .sect-body > .col{grid-column:2}
   .sect-body.full > .col{grid-column:1/-1}
 
-  /* —— I. Ruled principles list —— */
-  .principles{list-style:none;margin:0;padding:0}
-  .principles li{
-    display:grid;
-    grid-template-columns:80px 1fr;
-    gap:32px;
-    padding:32px 0;
+  /* —— Bullet list (ruled, document-style) —— */
+  .list{list-style:none;margin:0;padding:0}
+  .list > li{
+    display:grid;grid-template-columns:80px 1fr;gap:32px;
+    padding:24px 0;
     border-top:1px solid var(--rule);
+    align-items:baseline;
   }
-  .principles li:last-child{border-bottom:1px solid var(--rule)}
-  .principles li .n{
-    font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--ink-soft);text-transform:uppercase;padding-top:8px;
+  .list > li:last-child{border-bottom:1px solid var(--rule)}
+  .list > li .n{
+    font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase;
   }
-  .principles li h3{
-    font-family:var(--serif);font-weight:400;font-size:26px;letter-spacing:-.008em;line-height:1.1;margin:0 0 8px;color:var(--ink);
+  .list > li .t{
+    font-family:var(--serif);font-size:22px;letter-spacing:-.005em;line-height:1.2;color:var(--ink);
+    display:block;margin-bottom:4px;
   }
-  .principles li h3 .it{font-style:italic}
-  .principles li p{
-    margin:0;font-size:16px;line-height:1.55;color:var(--ink-2);max-width:54ch;
+  .list > li .t em{font-style:italic}
+  .list > li .b{
+    font-size:15px;line-height:1.55;color:var(--ink-2);margin:0;max-width:60ch;
   }
-  .principles li p strong{color:var(--ink);font-weight:500}
+  .list > li .b strong{color:var(--ink);font-weight:500}
 
-  /* —— II. Quiet quote + body —— */
-  .essay{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
-  .essay .body{
-    font-family:var(--serif);font-size:24px;line-height:1.4;color:var(--ink);letter-spacing:-.005em;
-    max-width:28ch;
-  }
-  .essay .body em{font-style:italic}
-  .essay .ask{padding:0;border-left:1px solid var(--mark);padding-left:32px}
-  .essay .ask .label{
-    font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:16px;display:block;
-  }
-  .essay .ask .q{
-    font-family:var(--serif);font-style:italic;font-size:22px;line-height:1.3;color:var(--ink);margin:0 0 18px;letter-spacing:-.005em;
-  }
-  .essay .ask p{margin:0 0 12px;font-size:15px;line-height:1.55;color:var(--ink-2)}
-  .essay .ask p:last-child{margin:0}
+  /* —— Inline single-line list (no description) —— */
+  .list.flat > li{padding:18px 0;align-items:center}
+  .list.flat > li .t{font-size:18px;line-height:1.3;margin:0}
 
-  /* —— III. Format diagram —— */
-  .formats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:32px;
-    align-items:end;
-  }
+  /* —— Format table —— */
+  .formats{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;align-items:end}
   .formats .fmt{display:flex;flex-direction:column;gap:14px}
-  .formats .fmt .ratio{
-    background:var(--paper-2);
-    border:1px solid var(--rule-strong);
-    position:relative;
-    width:100%;
-  }
-  .formats .fmt .ratio::after{
-    content:"";position:absolute;inset:8px;border:1px solid var(--rule);pointer-events:none;
-  }
+  .formats .fmt .ratio{background:var(--paper-2);border:1px solid var(--rule-strong);position:relative;width:100%}
+  .formats .fmt .ratio::after{content:"";position:absolute;inset:8px;border:1px solid var(--rule);pointer-events:none}
   .formats .fmt.r1 .ratio{aspect-ratio:16/9}
   .formats .fmt.r2 .ratio{aspect-ratio:4/5}
   .formats .fmt.r3 .ratio{aspect-ratio:1/1}
   .formats .fmt.r4 .ratio{aspect-ratio:9/16}
+  .formats .fmt .channel{font-family:var(--serif);font-size:18px;letter-spacing:-.005em;color:var(--ink);line-height:1.2}
   .formats .fmt .ar{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ink)}
-  .formats .fmt .name{font-family:var(--serif);font-size:20px;letter-spacing:-.005em;color:var(--ink);line-height:1.1}
-  .formats .fmt .name em{font-style:italic}
   .formats .fmt .res{font-family:var(--mono);font-size:11px;color:var(--ink-soft);letter-spacing:.04em}
-  .formats .fmt .ch{font-size:13px;color:var(--ink-2);line-height:1.4;max-width:22ch}
-  .formats-note{
-    margin-top:48px;padding-top:24px;border-top:1px solid var(--rule);
-    font-family:var(--serif);font-style:italic;font-size:18px;line-height:1.4;color:var(--ink-2);max-width:60ch;
-  }
 
-  /* —— IV. Shotset —— */
-  .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:32px 48px}
-  .shots .s{
-    padding-top:24px;border-top:1px solid var(--rule);
-    display:grid;grid-template-columns:48px 1fr;gap:18px;align-items:start;
-  }
-  .shots .s svg{width:48px;height:48px;color:var(--ink);opacity:.85}
-  .shots .s h3{
-    font-family:var(--serif);font-weight:400;font-size:22px;letter-spacing:-.005em;margin:0 0 6px;line-height:1.1;
-  }
-  .shots .s h3 .it{font-style:italic}
-  .shots .s p{margin:0;font-size:14px;line-height:1.5;color:var(--ink-2);max-width:24ch}
-  .shots-foot{
-    margin-top:48px;padding-top:24px;border-top:1px solid var(--rule);
-    font-family:var(--serif);font-style:italic;font-size:18px;line-height:1.4;color:var(--ink-2);max-width:62ch;
-  }
-
-  /* —— V. Techniek typeset —— */
-  .specs{display:grid;grid-template-columns:1fr 1fr;gap:48px 64px}
-  .specs .spec{padding:0 0 28px;border-bottom:1px solid var(--rule)}
-  .specs .spec .k{
-    font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:18px;
-  }
-  .specs .spec .v{
-    font-family:var(--serif);font-size:clamp(40px,5vw,72px);line-height:1;letter-spacing:-.022em;color:var(--ink);margin-bottom:14px;
-  }
-  .specs .spec .v .u{
-    font-family:var(--sans);font-size:.28em;font-weight:500;color:var(--ink-soft);margin-left:8px;letter-spacing:.02em;vertical-align:.7em;
-  }
-  .specs .spec p{margin:0;font-size:15px;line-height:1.55;color:var(--ink-2);max-width:42ch}
-  .specs .spec p strong{color:var(--ink);font-weight:500}
-  .specs .spec code{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--paper-2);padding:1px 6px}
-
-  /* —— VI. Deliverables —— */
-  .deliv{list-style:none;margin:0;padding:0}
-  .deliv li{
-    display:grid;
-    grid-template-columns:80px 1.3fr 1.2fr 110px;
-    gap:32px;
-    padding:28px 0;
-    border-top:1px solid var(--rule);
-    align-items:baseline;
-  }
-  .deliv li:last-child{border-bottom:1px solid var(--rule)}
-  .deliv li .n{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase}
-  .deliv li .t{font-family:var(--serif);font-size:24px;letter-spacing:-.008em;color:var(--ink);line-height:1.1}
-  .deliv li .t em{font-style:italic}
-  .deliv li .d{font-size:14px;line-height:1.55;color:var(--ink-2)}
-  .deliv li .x{
-    font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);text-align:right;
-  }
-  .deliv li .x.must{color:var(--ink);font-weight:500}
-
-  /* —— VII. Folder map —— */
-  .folders{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
-  .folder-list{list-style:none;margin:0;padding:0}
-  .folder-list li{
+  /* —— Folder list —— */
+  .folders{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 64px}
+  .folders li{
     display:grid;grid-template-columns:56px 1fr;gap:24px;
-    padding:18px 0;
-    border-top:1px solid var(--rule);
-    align-items:baseline;
+    padding:18px 0;border-top:1px solid var(--rule);align-items:baseline;
   }
-  .folder-list li:last-child{border-bottom:1px solid var(--rule)}
-  .folder-list li .no{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-soft)}
-  .folder-list li .nm{font-family:var(--mono);font-size:13px;color:var(--ink);font-weight:500;display:block;margin-bottom:4px}
-  .folder-list li .dsc{font-size:13.5px;line-height:1.45;color:var(--ink-2);margin:0}
+  .folders li:nth-last-child(-n+2){border-bottom:1px solid var(--rule)}
+  .folders li .no{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase}
+  .folders li .nm{font-family:var(--mono);font-size:13.5px;color:var(--ink);font-weight:500;display:block;margin-bottom:4px}
+  .folders li .dsc{font-size:13.5px;line-height:1.45;color:var(--ink-2);margin:0}
 
-  .folder-rules h3{
-    font-family:var(--serif);font-weight:400;font-size:24px;letter-spacing:-.008em;margin:0 0 18px;color:var(--ink);
-  }
-  .folder-rules h3 em{font-style:italic}
-  .folder-rules ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
-  .folder-rules ul li{
-    padding:14px 0;border-bottom:1px solid var(--rule);
-    font-size:14px;line-height:1.55;color:var(--ink-2);
-  }
-  .folder-rules ul li strong{color:var(--ink);font-weight:500}
-
-  /* —— VIII. Filename —— */
+  /* —— Filename —— */
   .filename-card{
     border-top:1px solid var(--rule-strong);
     border-bottom:1px solid var(--rule-strong);
-    padding:56px 0;
-    margin-bottom:48px;
+    padding:48px 0;
+    margin-bottom:40px;
   }
   .filename-card .label{
-    font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:32px;display:block;
+    font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:24px;display:block;
   }
   .filename{
     font-family:var(--mono);font-weight:500;
     font-size:clamp(20px,3.6vw,40px);line-height:1.2;letter-spacing:-.005em;
-    color:var(--ink);
-    word-break:break-word;
+    color:var(--ink);word-break:break-word;
   }
-  .filename .seg{position:relative;padding-bottom:14px;display:inline-block}
-  .filename .seg::after{
-    content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--mark);
-  }
-  .filename .sep{color:var(--ink-soft);padding:0 .04em}
   .filename .ext{color:var(--ink-soft)}
 
-  .filename-legend{display:grid;grid-template-columns:repeat(5,1fr);gap:32px;margin-top:48px}
-  .filename-legend .lg .pos{
-    font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;display:block;
-  }
-  .filename-legend .lg .nm{
-    font-family:var(--serif);font-size:20px;letter-spacing:-.005em;color:var(--ink);margin-bottom:6px;line-height:1.1;
-  }
-  .filename-legend .lg .nm em{font-style:italic}
-  .filename-legend .lg .ex{font-size:13px;line-height:1.45;color:var(--ink-2);max-width:22ch}
-  .filename-legend .lg .ex code{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--paper-2);padding:1px 5px}
-
-  .filename-examples{
-    display:grid;grid-template-columns:1fr 1fr;gap:48px;
-    padding-top:36px;border-top:1px solid var(--rule);
-  }
-  .filename-examples .col .h{
-    font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px;
-  }
-  .filename-examples .ok, .filename-examples .no{
-    font-family:var(--mono);font-size:13px;line-height:1.6;letter-spacing:0;display:block;padding:4px 0;
-  }
+  .filename-examples{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  .filename-examples .col .h{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px}
+  .filename-examples .ok, .filename-examples .no{font-family:var(--mono);font-size:13.5px;line-height:1.7;letter-spacing:0;display:block;padding:4px 0}
   .filename-examples .ok{color:var(--ink)}
   .filename-examples .no{color:var(--ink-soft);text-decoration:line-through;text-decoration-color:var(--mark);text-decoration-thickness:1px}
 
-  /* —— IX. Pre-roll —— */
-  .preroll{display:grid;grid-template-columns:1fr 1.3fr;gap:64px}
-  .preroll .quote{
-    font-family:var(--serif);font-size:30px;line-height:1.18;letter-spacing:-.012em;color:var(--ink);
+  .filename-foot{
+    margin-top:36px;padding-top:24px;border-top:1px solid var(--rule);
+    font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.45;color:var(--ink-2);max-width:60ch;
   }
-  .preroll .quote em{font-style:italic}
-  .preroll .quote .small{
-    display:block;margin-top:20px;
-    font-family:var(--sans);font-size:14px;line-height:1.55;color:var(--ink-2);letter-spacing:0;
-    font-style:normal;
-    max-width:32ch;
-  }
-  .preroll ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
-  .preroll ol li{
-    display:grid;grid-template-columns:48px 1fr;gap:18px;
-    padding:20px 0;border-bottom:1px solid var(--rule);
-    align-items:baseline;
-  }
-  .preroll ol li .n{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase}
-  .preroll ol li .ttl{
-    font-family:var(--serif);font-size:20px;line-height:1.15;color:var(--ink);letter-spacing:-.005em;display:block;margin-bottom:4px;
-  }
-  .preroll ol li .desc{font-size:14px;line-height:1.55;color:var(--ink-2);margin:0;max-width:48ch}
 
   /* —— Checklist —— */
   .checks{
-    padding-top:0;
-    border-top:1px solid var(--rule-strong);
-    margin-top:32px;
+    padding-top:0;border-top:1px solid var(--rule-strong);margin-top:48px;
   }
   .checks .heading{
     display:flex;justify-content:space-between;align-items:baseline;
@@ -496,9 +218,12 @@
     font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase;
   }
   .checks h3{
-    font-family:var(--serif);font-weight:400;font-size:clamp(34px,4vw,52px);line-height:1.04;letter-spacing:-.015em;margin:0 0 36px;
+    font-family:var(--serif);font-weight:400;font-size:clamp(34px,4vw,52px);line-height:1.04;letter-spacing:-.015em;margin:0 0 18px;
   }
   .checks h3 em{font-style:italic}
+  .checks .checks-lede{
+    font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.4;color:var(--ink-2);margin:0 0 36px;max-width:62ch;
+  }
   .checks ul{
     list-style:none;margin:0;padding:0;
     columns:2;column-gap:64px;
@@ -520,7 +245,6 @@
   }
   .checks ul li.done .box{background:var(--ink)}
   .checks ul li.done span:last-child{color:var(--ink-soft)}
-  .checks ul li strong{font-weight:500;color:var(--ink)}
   .checks ul li code{font-family:var(--mono);font-size:12.5px;color:var(--ink);background:var(--paper-2);padding:1px 6px}
 
   /* —— Closing —— */
@@ -529,8 +253,8 @@
     border-top:1px solid var(--rule-strong);
     display:grid;grid-template-columns:1fr auto;gap:48px;align-items:baseline;
   }
-  .closing .text{font-size:14px;line-height:1.6;color:var(--ink-2);max-width:62ch}
-  .closing .text em{font-family:var(--serif);font-style:italic;font-size:15.5px;color:var(--ink);letter-spacing:0;font-weight:400}
+  .closing .text{font-size:13px;line-height:1.6;color:var(--ink-soft);max-width:62ch;font-family:var(--mono);letter-spacing:.04em}
+  .closing .text em{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink);letter-spacing:0;font-weight:400;text-transform:none}
   .closing .sig{
     font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);text-align:right;
   }
@@ -539,33 +263,20 @@
   /* —— Responsive —— */
   @media (max-width:980px){
     .shell{padding:36px 40px 64px}
+    .hero{padding:64px 0 48px}
     .hero h1{width:100%}
-    .hero{padding:64px 0 40px}
-    .anchor{aspect-ratio:16/9;padding:24px}
-    .anchor .tag{left:24px;top:24px}
-    .anchor .meta{right:24px;top:24px}
-    .lede{grid-template-columns:1fr;gap:24px}
-    .index li a{grid-template-columns:48px 1fr;gap:18px}
-    .index .pg{display:none}
     .sect{padding-top:80px}
     .sect-head{grid-template-columns:1fr;gap:20px}
-    .sect-head .rn{padding-top:0}
-    .sect-head .dek{grid-column:1}
+    .sect-head .num{padding-top:0}
+    .sect-head .lede{grid-column:1}
     .sect-body{grid-template-columns:1fr;gap:0}
     .sect-body > .col{grid-column:1}
-    .principles li{grid-template-columns:1fr;gap:6px}
-    .essay{grid-template-columns:1fr;gap:36px}
-    .essay .ask{border-left:0;border-top:1px solid var(--mark);padding-left:0;padding-top:24px}
-    .formats{grid-template-columns:1fr 1fr;gap:36px 24px}
-    .shots{grid-template-columns:1fr 1fr;gap:24px 32px}
-    .specs{grid-template-columns:1fr;gap:32px}
-    .deliv li{grid-template-columns:60px 1fr;gap:8px 16px}
-    .deliv li .d{grid-column:2}
-    .deliv li .x{grid-column:2;text-align:left;margin-top:6px}
-    .folders{grid-template-columns:1fr;gap:48px}
-    .filename-legend{grid-template-columns:1fr 1fr;gap:24px}
+    .list > li{grid-template-columns:1fr;gap:4px}
+    .formats{grid-template-columns:1fr 1fr;gap:32px 24px}
+    .folders{grid-template-columns:1fr;gap:0}
+    .folders li{border-bottom:0}
+    .folders li:last-child{border-bottom:1px solid var(--rule)}
     .filename-examples{grid-template-columns:1fr;gap:24px}
-    .preroll{grid-template-columns:1fr;gap:32px}
     .checks ul{columns:1}
     .closing{grid-template-columns:1fr;gap:18px}
     .closing .sig{text-align:left}
@@ -574,23 +285,18 @@
     .shell{padding:24px 20px 48px}
     .colophon{grid-template-columns:1fr;gap:12px}
     .colophon .meta span + span{margin-left:0;display:block;margin-top:4px}
-    .hero{padding:40px 0 32px}
     .formats{grid-template-columns:1fr}
-    .shots{grid-template-columns:1fr}
-    .filename-legend{grid-template-columns:1fr}
   }
 
   @media print{
     body{background:#fff}
     .sect{page-break-inside:avoid;padding-top:32px}
-    .anchor{background:#1a1a1a !important;color:#fff}
   }
 </style>
 </head>
 <body>
 <div class="shell">
 
-  <!-- COLOPHON -->
   <header class="colophon">
     <div class="mark">VDK · Productie<em>handboek</em> Video</div>
     <div class="meta">
@@ -602,22 +308,8 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="stamp">Vóór de draaidag · vijf minuten lezen</div>
-    <h1>Een handboek voor de mensen die <span class="it">ons</span> in beeld brengen.</h1>
-    <p class="sub">Negen onderdelen en één checklist. Voor elke productie hetzelfde verhaal, voor elke draaidag dezelfde kaders. Niet ter inperking, wel om beeld van VDK herkenbaar te houden.</p>
-
-    <div class="anchor" aria-label="Referentiekader">
-      <span class="tag">Scene 01</span>
-      <span class="meta">21 : 9 referentie</span>
-      <div class="title">Vakmensen, materiaal, <em>trots</em>. In die volgorde.</div>
-      <span class="ratio">50 fps · 4K</span>
-    </div>
-  </section>
-
-  <!-- LEDE -->
-  <section class="lede">
-    <span class="label">Toelichting</span>
-    <p>Een productie voor VDK begint niet bij de camera, maar in het gesprek over wat we willen laten zien. Mensen. Vakmanschap. Trots. In die volgorde.</p>
+    <h1>Kwaliteitsrichtlijnen <span class="it">Video</span>.</h1>
+    <div class="author"><b>VDK Groep</b></div>
   </section>
 
   <!-- INDEX -->
@@ -627,55 +319,48 @@
       <span>Negen onderdelen + checklist</span>
     </div>
     <ol>
-      <li><a href="#s1"><span class="rn">I</span><span class="tt">De basis</span><span class="pg">Wat altijd in beeld</span></a></li>
-      <li><a href="#s2"><span class="rn">II</span><span class="tt">Verhaal vóór beeld</span><span class="pg">Story-led</span></a></li>
-      <li><a href="#s3"><span class="rn">III</span><span class="tt">Eén scène, vier formaten</span><span class="pg">Framing</span></a></li>
-      <li><a href="#s4"><span class="rn">IV</span><span class="tt">Een complete shotset</span><span class="pg">Variatie</span></a></li>
-      <li><a href="#s5"><span class="rn">V</span><span class="tt">Hard en kort</span><span class="pg">Techniek</span></a></li>
-      <li><a href="#s6"><span class="rn">VI</span><span class="tt">Wat je inlevert</span><span class="pg">Deliverables</span></a></li>
-      <li><a href="#s7"><span class="rn">VII</span><span class="tt">Nul tot zeven</span><span class="pg">Mapstructuur</span></a></li>
-      <li><a href="#s8"><span class="rn">VIII</span><span class="tt">Eén formule</span><span class="pg">Bestandsnamen</span></a></li>
-      <li><a href="#s9"><span class="rn">IX</span><span class="tt">Vóór de camera</span><span class="pg">Pre-roll gesprek</span></a></li>
+      <li><a href="#s1"><span class="rn">01</span><span class="tt">De basis: wat zit er altijd in?</span></a></li>
+      <li><a href="#s2"><span class="rn">02</span><span class="tt">Inhoud</span></a></li>
+      <li><a href="#s3"><span class="rn">03</span><span class="tt">Formaten en framing</span></a></li>
+      <li><a href="#s4"><span class="rn">04</span><span class="tt">Shots</span></a></li>
+      <li><a href="#s5"><span class="rn">05</span><span class="tt">Technische eisen</span></a></li>
+      <li><a href="#s6"><span class="rn">06</span><span class="tt">Wat lever je op?</span></a></li>
+      <li><a href="#s7"><span class="rn">07</span><span class="tt">Mapstructuur</span></a></li>
+      <li><a href="#s8"><span class="rn">08</span><span class="tt">Bestandsnamen</span></a></li>
+      <li><a href="#s9"><span class="rn">09</span><span class="tt">Vooraf afstemmen met VDK</span></a></li>
+      <li><a href="#checklist"><span class="rn">—</span><span class="tt">Checklist voor oplevering</span></a></li>
     </ol>
   </nav>
 
-  <!-- I — BASIS -->
+  <!-- 1 — DE BASIS -->
   <section class="sect" id="s1">
     <div class="sect-head">
-      <span class="rn">Sectie I</span>
-      <h2>Vier dingen die <span class="it">altijd</span> in elke VDK-video zitten.</h2>
-      <p class="dek">Niet onderhandelbaar, ook niet bij snelle producties. Zonder deze vier herkennen we onszelf niet terug op het scherm.</p>
+      <span class="num">01</span>
+      <h2>De basis: wat zit er <span class="it">altijd</span> in?</h2>
+      <p class="lede">Elke VDK-video bevat deze vier onderdelen:</p>
     </div>
-
     <div class="sect-body">
       <div class="col">
-        <ol class="principles">
+        <ol class="list">
           <li>
             <span class="n">01</span>
             <div>
-              <h3>De opening die weet waar we zijn</h3>
-              <p>Begin met een paar establishing shots. <strong>Binnen drie seconden</strong> weet de kijker waar dit zich afspeelt en waarover het gaat.</p>
+              <span class="t">Opening</span>
+              <p class="b">Begin met wat establishing shots.</p>
             </div>
           </li>
           <li>
             <span class="n">02</span>
             <div>
-              <h3>De afsluiter die niet abrupt stopt</h3>
-              <p>Eindshot, outro graphic, quote of CTA. <strong>Nooit abrupt eindigen.</strong> Het laatste beeld bepaalt wat de kijker meeneemt.</p>
+              <span class="t">Verzorgde afsluiter</span>
+              <p class="b">Eindshot, outro graphic, quote of CTA. Nooit abrupt stoppen.</p>
             </div>
           </li>
           <li>
             <span class="n">03</span>
             <div>
-              <h3>De huisstijl als vanzelfsprekend</h3>
-              <p>Altijd onze logo's, leader, outro, fonts, kleuren en graphics. <strong>Geen eigen stijl bovenop.</strong> De aangeleverde elementen zijn niet decoratief, ze zijn het kader.</p>
-            </div>
-          </li>
-          <li>
-            <span class="n">04</span>
-            <div>
-              <h3>Eén onderwerp dat centraal staat</h3>
-              <p>Bedrijf, project of thema is expliciet. <strong>Een montage van losse beelden is geen video.</strong> De kijker hoeft niet te raden waar dit over gaat.</p>
+              <span class="t">VDK-huisstijl</span>
+              <p class="b">Altijd de aangeleverde logo's, leader, outro, fonts, kleuren en graphics gebruiken. Nooit eigen stijl.</p>
             </div>
           </li>
         </ol>
@@ -683,411 +368,277 @@
     </div>
   </section>
 
-  <!-- II — INHOUD -->
+  <!-- 2 — INHOUD -->
   <section class="sect" id="s2">
     <div class="sect-head">
-      <span class="rn">Sectie II</span>
-      <h2>Een video die <span class="it">vertelt</span>. Niet alleen toont.</h2>
-      <p class="dek">Beelden zonder verhaal halen we niet binnen. Hoe goed ze ook gefilmd zijn.</p>
+      <span class="num">02</span>
+      <h2>Inhoud.</h2>
+      <p class="lede">De video moet een duidelijk verhaal vertellen, niet alleen mooie beelden laten zien.</p>
     </div>
-
     <div class="sect-body">
       <div class="col">
-        <div class="essay">
-          <p class="body">Breng <em>mensen</em> positief in beeld, niet alleen machines. Laat <em>vakmanschap</em>, samenwerking en trots zien. Interviews zijn kort, helder en bruikbaar. Denk tijdens de opname al aan de social-uitsnede.</p>
-          <div class="ask">
-            <span class="label">Toetssteen voor de regiestoel</span>
-            <p class="q">"Welk bedrijf, welk vakmanschap en welke mens zie ik in dit shot?"</p>
-            <p>Stel deze vraag op een willekeurig moment in de montage. Als het antwoord niet helder is binnen één zin, knip je het beeld eruit of vervang je het.</p>
-            <p>Een losse sfeershot zonder dit antwoord is geen materiaal. Het is opvulling.</p>
-          </div>
-        </div>
+        <ol class="list flat">
+          <li><span class="n">01</span><div><span class="t">Breng mensen positief in beeld, niet alleen machines.</span></div></li>
+          <li><span class="n">02</span><div><span class="t">Laat vakmanschap, samenwerking en trots zien.</span></div></li>
+          <li><span class="n">03</span><div><span class="t">Maak duidelijk welk bedrijf/project/thema centraal staat.</span></div></li>
+          <li><span class="n">04</span><div><span class="t">Interviews: kort, helder, bruikbaar.</span></div></li>
+          <li><span class="n">05</span><div><span class="t">Denk tijdens het draaien al aan social media-fragmenten.</span></div></li>
+          <li><span class="n">06</span><div><span class="t">Geen losse sfeerbeelden zonder context.</span></div></li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <!-- III — FORMATEN -->
+  <!-- 3 — FORMATEN EN FRAMING -->
   <section class="sect" id="s3">
     <div class="sect-head">
-      <span class="rn">Sectie III</span>
-      <h2>Eén scène. <span class="it">Vier formaten.</span> Eén opname.</h2>
-      <p class="dek">Film zo dat dezelfde scène in alle ratios werkt. Houd ruimte rond personen. Hieronder de werkelijke verhoudingen op schaal.</p>
+      <span class="num">03</span>
+      <h2>Formaten en <span class="it">framing</span>.</h2>
+      <p class="lede">Film zo dat shots werken in alle formaten. Houd altijd ruimte rondom personen.</p>
     </div>
-
     <div class="sect-body full">
       <div class="col">
         <div class="formats">
           <div class="fmt r1">
             <div class="ratio"></div>
+            <span class="channel">YouTube / Intern / LinkedIn breed</span>
             <span class="ar">16 : 9</span>
-            <span class="name"><em>Hoofdformat</em></span>
             <span class="res">1920 × 1080+</span>
-            <span class="ch">YouTube · intern · LinkedIn breed</span>
           </div>
           <div class="fmt r2">
             <div class="ratio"></div>
+            <span class="channel">Instagram / LinkedIn feed</span>
             <span class="ar">4 : 5</span>
-            <span class="name">Feed</span>
             <span class="res">1080 × 1350</span>
-            <span class="ch">Instagram · LinkedIn feed</span>
           </div>
           <div class="fmt r3">
             <div class="ratio"></div>
+            <span class="channel">Vierkant</span>
             <span class="ar">1 : 1</span>
-            <span class="name">Universeel</span>
             <span class="res">1080 × 1080</span>
-            <span class="ch">Mix · ondersteunend</span>
           </div>
           <div class="fmt r4">
             <div class="ratio"></div>
+            <span class="channel">Reels / Stories / Shorts</span>
             <span class="ar">9 : 16</span>
-            <span class="name">Vertical</span>
             <span class="res">1080 × 1920</span>
-            <span class="ch">Reels · Stories · Shorts</span>
           </div>
         </div>
-        <p class="formats-note">Maak waar mogelijk aparte verticale shots. Een 16:9-opname die je later croppt naar 9:16, snijdt vaak precies door iemands gezicht.</p>
       </div>
     </div>
   </section>
 
-  <!-- IV — SHOTS -->
+  <!-- 4 — SHOTS -->
   <section class="sect" id="s4">
     <div class="sect-head">
-      <span class="rn">Sectie IV</span>
-      <h2>Een complete set. <span class="it">Geen losse sfeerbeelden.</span></h2>
-      <p class="dek">Bouw je opnameplan zo dat je per setup minstens één wide, één medium en één detail draait. Anders moet de montage rekken wat er niet is.</p>
+      <span class="num">04</span>
+      <h2>Shots.</h2>
+      <p class="lede">Lever een complete set, niet alleen sfeerbeelden. Zorg minimaal voor:</p>
     </div>
-
-    <div class="sect-body full">
-      <div class="col">
-        <div class="shots">
-          <div class="s">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1"><rect x="2" y="2" width="44" height="44"/><path d="M2 34 Q24 22 46 34"/><circle cx="24" cy="38" r="1.5" fill="currentColor"/></svg>
-            <div>
-              <h3>Wide / <em>establishing</em></h3>
-              <p>Plaats, schaal, context.</p>
-            </div>
-          </div>
-          <div class="s">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1"><rect x="2" y="2" width="44" height="44"/><circle cx="24" cy="19" r="5"/><path d="M14 42 Q24 28 34 42"/></svg>
-            <div>
-              <h3>Medium</h3>
-              <p>Persoon in omgeving.</p>
-            </div>
-          </div>
-          <div class="s">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1"><rect x="2" y="2" width="44" height="44"/><circle cx="24" cy="24" r="14"/><circle cx="24" cy="22" r="3.5"/></svg>
-            <div>
-              <h3><em>Close-up</em></h3>
-              <p>Gezicht, blik, herkenning.</p>
-            </div>
-          </div>
-          <div class="s">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1"><rect x="2" y="2" width="44" height="44"/><path d="M8 28 H40"/><path d="M14 22 H22"/><path d="M28 34 H38"/></svg>
-            <div>
-              <h3>Detail</h3>
-              <p>Handen, gereedschap, techniek.</p>
-            </div>
-          </div>
-          <div class="s">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1"><rect x="2" y="2" width="44" height="44"/><circle cx="18" cy="22" r="4"/><circle cx="30" cy="22" r="4"/><path d="M10 36 H38"/></svg>
-            <div>
-              <h3>Samen<em>werken</em></h3>
-              <p>Mensen in actie, samen.</p>
-            </div>
-          </div>
-          <div class="s">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1"><rect x="2" y="2" width="44" height="44"/><path d="M24 10 L38 28 H10 Z"/><path d="M24 28 V40"/></svg>
-            <div>
-              <h3>Hero shot</h3>
-              <p>Het beeld dat blijft hangen.</p>
-            </div>
-          </div>
-        </div>
-        <p class="shots-foot">Maak waar mogelijk aparte verticale shots (9:16). Reken in de montage niet op croppen achteraf.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- V — TECHNIEK -->
-  <section class="sect" id="s5">
-    <div class="sect-head">
-      <span class="rn">Sectie V</span>
-      <h2>Hard, en <span class="it">kort</span>.</h2>
-      <p class="dek">Vier kerngetallen. Geen interpretatie.</p>
-    </div>
-
     <div class="sect-body">
       <div class="col">
-        <div class="specs">
-          <div class="spec">
-            <div class="k">Framerate camera</div>
-            <div class="v">50<span class="u">fps</span></div>
-            <p>Altijd 50 fps op camera, <strong>zonder uitzondering</strong>. Geeft slowmotion-ruimte en koppelt schoon naar 25p.</p>
-          </div>
-          <div class="spec">
-            <div class="k">Resolutie</div>
-            <div class="v">4K+</div>
-            <p>Minimaal 4K waar mogelijk. <strong>Hoger is welkom</strong>, mits stabiel opgenomen en correct belicht. Geen uitgebrande highlights.</p>
-          </div>
-          <div class="spec">
-            <div class="k">Edit timeline</div>
-            <div class="v">25 p</div>
-            <p>Master altijd 25p, ook met 50fps-bron. <strong>Conformeren</strong> in de montagesoftware. Geen mixed framerates over de hele timeline.</p>
-          </div>
-          <div class="spec">
-            <div class="k">Audio &amp; muziek</div>
-            <div class="v">Los</div>
-            <p>Goede microfoon bij interviews, los van camera-audio. Muziek alleen met geldige licentie. Bewijs mee in <code>03 Music</code>.</p>
-          </div>
-        </div>
+        <ol class="list flat">
+          <li><span class="n">01</span><div><span class="t">Wide / establishing shots</span></div></li>
+          <li><span class="n">02</span><div><span class="t">Medium shots + close-ups + detailshots</span></div></li>
+          <li><span class="n">03</span><div><span class="t">Handen aan het werk, gereedschap, techniek</span></div></li>
+          <li><span class="n">04</span><div><span class="t">Medewerkers in actie en in samenwerking</span></div></li>
+          <li><span class="n">05</span><div><span class="t">Natuurlijke momenten tussen collega's</span></div></li>
+          <li><span class="n">06</span><div><span class="t">Hero shots + afsluitende beelden</span></div></li>
+          <li><span class="n">07</span><div><span class="t">Maak waar mogelijk ook aparte verticale shots (9:16).</span></div></li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <!-- VI — DELIVERABLES -->
+  <!-- 5 — TECHNISCHE EISEN -->
+  <section class="sect" id="s5">
+    <div class="sect-head">
+      <span class="num">05</span>
+      <h2>Technische <span class="it">eisen</span>.</h2>
+    </div>
+    <div class="sect-body">
+      <div class="col">
+        <ol class="list">
+          <li>
+            <span class="n">01</span>
+            <div>
+              <span class="t">Framerate</span>
+              <p class="b">Altijd 50 fps.</p>
+            </div>
+          </li>
+          <li>
+            <span class="n">02</span>
+            <div>
+              <span class="t">Resolutie</span>
+              <p class="b">Minimaal 4K waar mogelijk.</p>
+            </div>
+          </li>
+          <li>
+            <span class="n">03</span>
+            <div>
+              <span class="t">Camera</span>
+              <p class="b">Stabiel, correct belicht, geen uitgebrande highlights.</p>
+            </div>
+          </li>
+          <li>
+            <span class="n">04</span>
+            <div>
+              <span class="t">Edit timeline</span>
+              <p class="b">Altijd in 25p.</p>
+            </div>
+          </li>
+          <li>
+            <span class="n">05</span>
+            <div>
+              <span class="t">Audio</span>
+              <p class="b">Professioneel, los opnemen naast camera. Altijd goede microfoon bij interviews.</p>
+            </div>
+          </li>
+          <li>
+            <span class="n">06</span>
+            <div>
+              <span class="t">Muziek</span>
+              <p class="b">Alleen met geldige licentie. Lever licentie-info mee.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 — WAT LEVER JE OP? -->
   <section class="sect" id="s6">
     <div class="sect-head">
-      <span class="rn">Sectie VI</span>
-      <h2>Wat je <span class="it">inlevert</span>.</h2>
-      <p class="dek">Eén master, een paar bewerkte versies, en alle bronnen. In die volgorde van prioriteit.</p>
+      <span class="num">06</span>
+      <h2>Wat lever je <span class="it">op</span>?</h2>
     </div>
+    <div class="sect-body">
+      <div class="col">
+        <ol class="list flat">
+          <li><span class="n">01</span><div><span class="t">Hoofdvideo (16:9, hoge kwaliteit)</span></div></li>
+          <li><span class="n">02</span><div><span class="t">Korte social versie (max. 1 minuut, zelfstandig te begrijpen)</span></div></li>
+          <li><span class="n">03</span><div><span class="t">Verticale versie (9:16, indien afgesproken)</span></div></li>
+          <li><span class="n">04</span><div><span class="t">Snippets (10-30 sec, indien afgesproken)</span></div></li>
+          <li><span class="n">05</span><div><span class="t">Bronbestanden (footage, audio, project, graphics, muziek + licenties)</span></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
 
+  <!-- 7 — MAPSTRUCTUUR -->
+  <section class="sect" id="s7">
+    <div class="sect-head">
+      <span class="num">07</span>
+      <h2><span class="it">Mapstructuur</span>.</h2>
+      <p class="lede">Lever alles aan in deze vaste structuur:</p>
+    </div>
     <div class="sect-body full">
       <div class="col">
-        <ul class="deliv">
-          <li>
-            <span class="n">A · master</span>
-            <span class="t"><em>Hoofdvideo</em>, 16:9</span>
-            <span class="d">De volledige montage. Opening, kerverhaal, afsluiter, huisstijl-elementen toegepast.</span>
-            <span class="x must">Verplicht</span>
-          </li>
-          <li>
-            <span class="n">B · social</span>
-            <span class="t">Korte social-versie</span>
-            <span class="d">Maximaal één minuut. Begrijpelijk zonder context. Aparte audio-mix als nodig.</span>
-            <span class="x must">Verplicht</span>
-          </li>
-          <li>
-            <span class="n">C · vertical</span>
-            <span class="t">Verticale versie, <em>9:16</em></span>
-            <span class="d">Voor Reels, Stories en Shorts. Indien afgesproken in het pre-roll-gesprek.</span>
-            <span class="x">Op afspraak</span>
-          </li>
-          <li>
-            <span class="n">D · snippets</span>
-            <span class="t">Snippets, 10 tot 30 seconden</span>
-            <span class="d">Losse fragmenten voor social-momenten. Per snippet zelfstandig leesbaar.</span>
-            <span class="x">Op afspraak</span>
-          </li>
-          <li>
-            <span class="n">E · bronnen</span>
-            <span class="t">Bronbestanden <em>compleet</em></span>
-            <span class="d">Footage, audio, projectbestanden, graphics, muziek + licenties. Volgens de mapstructuur in sectie VII.</span>
-            <span class="x must">Altijd</span>
-          </li>
+        <ul class="folders">
+          <li><span class="no">00</span><div><span class="nm">/00 Project</span><p class="dsc">Montagebestanden (Premiere, FCP, DaVinci, AE, XML)</p></div></li>
+          <li><span class="no">01</span><div><span class="nm">/01 Footage</span><p class="dsc">Ruwe camera, per dag/camera/locatie</p></div></li>
+          <li><span class="no">02</span><div><span class="nm">/02 Audio</span><p class="dsc">Losse audio (interview, lav, boom, VO)</p></div></li>
+          <li><span class="no">03</span><div><span class="nm">/03 Music</span><p class="dsc">Muziek + licentie info</p></div></li>
+          <li><span class="no">04</span><div><span class="nm">/04 Graphics</span><p class="dsc">Logo's, leader, outro, titels, ondertitels</p></div></li>
+          <li><span class="no">05</span><div><span class="nm">/05 Downloads</span><p class="dsc">Stock, externe assets</p></div></li>
+          <li><span class="no">06</span><div><span class="nm">/06 Documents</span><p class="dsc">Briefing, shotlist, script, licenties</p></div></li>
+          <li><span class="no">07</span><div><span class="nm">/07 Renders</span><p class="dsc">Alle eindexports</p></div></li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- VII — FOLDERS -->
-  <section class="sect" id="s7">
-    <div class="sect-head">
-      <span class="rn">Sectie VII</span>
-      <h2>Nul tot zeven. <span class="it">Vaste indeling.</span></h2>
-      <p class="dek">Geen losse bestanden in de root. Renders alleen in map 07.</p>
-    </div>
-
-    <div class="sect-body full">
-      <div class="col">
-        <div class="folders">
-          <ul class="folder-list">
-            <li><span class="no">00</span><div><span class="nm">/00 Project</span><p class="dsc">Montagebestanden. Premiere, FCP, DaVinci, AfterEffects, XML.</p></div></li>
-            <li><span class="no">01</span><div><span class="nm">/01 Footage</span><p class="dsc">Ruwe camera, per dag, per camera, per locatie.</p></div></li>
-            <li><span class="no">02</span><div><span class="nm">/02 Audio</span><p class="dsc">Losse audio. Interview, lavalier, boom, voice-over.</p></div></li>
-            <li><span class="no">03</span><div><span class="nm">/03 Music</span><p class="dsc">Muziek + licentie-info. Geen muziek zonder bewijs.</p></div></li>
-            <li><span class="no">04</span><div><span class="nm">/04 Graphics</span><p class="dsc">Logo's, leader, outro, titels, ondertitels.</p></div></li>
-            <li><span class="no">05</span><div><span class="nm">/05 Downloads</span><p class="dsc">Stock-footage, externe assets, betaalde libraries.</p></div></li>
-            <li><span class="no">06</span><div><span class="nm">/06 Documents</span><p class="dsc">Briefing, shotlist, script, licenties, releases.</p></div></li>
-            <li><span class="no">07</span><div><span class="nm">/07 Renders</span><p class="dsc">Alle eindexports. Hier en alleen hier.</p></div></li>
-          </ul>
-
-          <div class="folder-rules">
-            <h3>Vijf regels bij <em>oplevering</em></h3>
-            <ul>
-              <li><strong>Eén map per project.</strong> Naam volgt het formule-schema in sectie VIII, zonder ratio of versie.</li>
-              <li><strong>Renders alleen in 07.</strong> Niet ook in 00, niet ook in de root, niet ook op bureaublad.</li>
-              <li><strong>Per camera, per dag, per locatie</strong> een submap in 01 Footage. Geen losse bestanden in de mapwortel.</li>
-              <li><strong>Licentie-bewijs</strong> als PDF of screenshot. In 03 Music én in 06 Documents.</li>
-              <li><strong>Niets weglaten.</strong> Ongebruikte takes blijven in 01 voor latere hergebruik.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- VIII — FILENAME -->
+  <!-- 8 — BESTANDSNAMEN -->
   <section class="sect" id="s8">
     <div class="sect-head">
-      <span class="rn">Sectie VIII</span>
-      <h2>Eén <span class="it">formule</span>. Vijf segmenten.</h2>
-      <p class="dek">Underscores, geen spaties. Geen woorden als "definitief", "nieuwsteversie" of "final". Versienummer hoort in V01.</p>
+      <span class="num">08</span>
+      <h2><span class="it">Bestandsnamen</span>.</h2>
+      <p class="lede">Gebruik dit format:</p>
     </div>
-
     <div class="sect-body full">
       <div class="col">
         <div class="filename-card">
-          <span class="label">Bestandsnaam-formule</span>
-          <div class="filename">
-            <span class="seg">VDK</span><span class="sep">_</span><span class="seg">Projectnaam</span><span class="sep">_</span><span class="seg">Type</span><span class="sep">_</span><span class="seg">Ratio</span><span class="sep">_</span><span class="seg">V01</span><span class="ext">.mp4</span>
-          </div>
-        </div>
-
-        <div class="filename-legend">
-          <div class="lg">
-            <span class="pos">Segment 1</span>
-            <div class="nm">VDK</div>
-            <p class="ex">Vaste prefix, altijd hoofdletters.</p>
-          </div>
-          <div class="lg">
-            <span class="pos">Segment 2</span>
-            <div class="nm"><em>Projectnaam</em></div>
-            <p class="ex">Bondig, zonder spaties. Bijv. <code>FSS2026</code>, <code>OpeningHK</code>.</p>
-          </div>
-          <div class="lg">
-            <span class="pos">Segment 3</span>
-            <div class="nm">Type</div>
-            <p class="ex">Hoofdvideo, Social, Vertical, Snippet, Teaser.</p>
-          </div>
-          <div class="lg">
-            <span class="pos">Segment 4</span>
-            <div class="nm">Ratio</div>
-            <p class="ex"><code>16x9</code>, <code>4x5</code>, <code>1x1</code>, <code>9x16</code>. Met x, niet met dubbele punt.</p>
-          </div>
-          <div class="lg">
-            <span class="pos">Segment 5</span>
-            <div class="nm"><em>V01</em></div>
-            <p class="ex">Versie met voorloopnul. V02 bij elke nieuwe export.</p>
-          </div>
+          <span class="label">Format</span>
+          <div class="filename">VDK_Projectnaam_Type_Ratio_V01<span class="ext">.mp4</span></div>
         </div>
 
         <div class="filename-examples">
           <div class="col">
-            <div class="h">Zo wel</div>
+            <div class="h">Bijvoorbeeld</div>
             <span class="ok">VDK_FSS2026_Hoofdvideo_16x9_V01.mp4</span>
-            <span class="ok">VDK_OpeningHK_Vertical_9x16_V02.mp4</span>
-            <span class="ok">VDK_FSS2026_Snippet_1x1_V01.mp4</span>
           </div>
           <div class="col">
-            <div class="h">Zo niet</div>
+            <div class="h">Nooit</div>
             <span class="no">final.mp4</span>
             <span class="no">export123.mp4</span>
             <span class="no">nieuwsteversie.mp4</span>
-            <span class="no">VDK final FSS 16-9.mp4</span>
           </div>
         </div>
+
+        <p class="filename-foot">Bij events kan snellere oplevering nodig zijn. Vooraf afstemmen.</p>
       </div>
     </div>
   </section>
 
-  <!-- IX — PRE-ROLL -->
+  <!-- 9 — VOORAF AFSTEMMEN -->
   <section class="sect" id="s9">
     <div class="sect-head">
-      <span class="rn">Sectie IX</span>
-      <h2>Vóór de <span class="it">camera</span> aanstaat.</h2>
-      <p class="dek">Een goede draaidag begint op een ander moment dan de set. Vijf onderwerpen, één telefoontje.</p>
+      <span class="num">09</span>
+      <h2>Vooraf afstemmen met <span class="it">VDK</span>.</h2>
+      <p class="lede">Neem altijd contact op voor de draaidag over:</p>
     </div>
-
-    <div class="sect-body full">
+    <div class="sect-body">
       <div class="col">
-        <div class="preroll">
-          <div class="quote">
-            Bel ons vóór de draaidag. <em>Niet erna.</em>
-            <span class="small">Bij events geldt vaak een snellere oplevering. Stem dat in dit gesprek meteen af, niet pas in de week van het event.</span>
-          </div>
-          <ol>
-            <li>
-              <span class="n">01</span>
-              <div>
-                <span class="ttl">Doel, doelgroep en boodschap</span>
-                <p class="desc">Wat moet deze video doen? Voor wie? Wat onthoudt de kijker?</p>
-              </div>
-            </li>
-            <li>
-              <span class="n">02</span>
-              <div>
-                <span class="ttl">Lengte, formaten en kanalen</span>
-                <p class="desc">Welke duur en welke ratios. Waar gaat het draaien.</p>
-              </div>
-            </li>
-            <li>
-              <span class="n">03</span>
-              <div>
-                <span class="ttl">Huisstijl en slogan-gebruik</span>
-                <p class="desc">Welke logo's, leader en outro je krijgt. En hoe je slogans verwerkt.</p>
-              </div>
-            </li>
-            <li>
-              <span class="n">04</span>
-              <div>
-                <span class="ttl">Deadline en opleverstructuur</span>
-                <p class="desc">Inclusief eventuele snelle event-deadlines en tussentijdse cuts.</p>
-              </div>
-            </li>
-            <li>
-              <span class="n">05</span>
-              <div>
-                <span class="ttl">Contactpersoon voor feedback</span>
-                <p class="desc">Eén persoon aan onze kant. Niet de hele afdeling.</p>
-              </div>
-            </li>
-          </ol>
-        </div>
+        <ol class="list flat">
+          <li><span class="n">01</span><div><span class="t">Doel, doelgroep en boodschap van de video</span></div></li>
+          <li><span class="n">02</span><div><span class="t">Gewenste lengte, formaten en kanalen</span></div></li>
+          <li><span class="n">03</span><div><span class="t">Huisstijlbestanden en slogan-gebruik</span></div></li>
+          <li><span class="n">04</span><div><span class="t">Deadline en opleverstructuur</span></div></li>
+          <li><span class="n">05</span><div><span class="t">Contactpersoon voor feedback</span></div></li>
+        </ol>
       </div>
     </div>
   </section>
 
   <!-- CHECKLIST -->
-  <section class="sect checks" style="padding-top:120px">
+  <section class="sect checks" id="checklist" style="padding-top:120px">
     <div class="heading">
-      <span>Voor oplevering</span>
-      <span>Twaalf punten</span>
+      <span>Checklist voor oplevering</span>
+      <span>Veertien punten</span>
     </div>
-    <h3>Voor je drukt op <em>verzenden</em>.</h3>
+    <h3>Checklist voor <em>oplevering</em>.</h3>
+    <p class="checks-lede">Loop dit lijstje af voordat je oplevert:</p>
     <ul>
-      <li><span class="box"></span><span>Alles opgenomen in <strong>50 fps</strong>?</span></li>
-      <li><span class="box"></span><span>Voldoende <strong>shotvariatie</strong> (wide, medium, close-up, detail, hero)?</span></li>
-      <li><span class="box"></span><span>Belangrijkste shots werken in <strong>16:9, 4:5, 1:1 en 9:16</strong>?</span></li>
-      <li><span class="box"></span><span>Mensen <strong>positief en herkenbaar</strong> in beeld?</span></li>
-      <li><span class="box"></span><span>Sterke opening en <strong>verzorgde afsluiter</strong>?</span></li>
-      <li><span class="box"></span><span>VDK-huisstijl correct toegepast (fonts, kleuren, logo, leader, outro)?</span></li>
-      <li><span class="box"></span><span>Geluid goed verstaanbaar, <strong>geen ruis of wind</strong>?</span></li>
-      <li><span class="box"></span><span>Hoofdvideo, social-versie en eventueel verticaal aangeleverd?</span></li>
-      <li><span class="box"></span><span>Snippets aangeleverd, indien afgesproken?</span></li>
-      <li><span class="box"></span><span>Bronbestanden compleet (footage, audio, project, muziek + licenties)?</span></li>
-      <li><span class="box"></span><span>Alles in de juiste <strong>mapstructuur 00 — 07</strong>?</span></li>
-      <li><span class="box"></span><span>Bestandsnamen volgens <code>VDK_Project_Type_Ratio_V01</code>, renders in <code>07 Renders</code>, binnen deadline?</span></li>
+      <li><span class="box"></span><span>Alles opgenomen in 50 fps?</span></li>
+      <li><span class="box"></span><span>Voldoende shotvariatie (wide, medium, close-up, detail, hero)?</span></li>
+      <li><span class="box"></span><span>Belangrijkste shots werken in 16:9, 4:5, 1:1 en 9:16?</span></li>
+      <li><span class="box"></span><span>Mensen positief en herkenbaar in beeld?</span></li>
+      <li><span class="box"></span><span>Sterke opening en verzorgde afsluiter?</span></li>
+      <li><span class="box"></span><span>VDK-huisstijl correct toegepast (fonts, kleuren, logo)?</span></li>
+      <li><span class="box"></span><span>Geluid goed verstaanbaar, geen ruis/wind?</span></li>
+      <li><span class="box"></span><span>Hoofdvideo, social versie en eventueel verticaal aangeleverd?</span></li>
+      <li><span class="box"></span><span>Snippets aangeleverd (indien afgesproken)?</span></li>
+      <li><span class="box"></span><span>Bronbestanden compleet (footage, audio, project, muziek + licenties / Artlist royalty free)?</span></li>
+      <li><span class="box"></span><span>Alles in de juiste mappenstructuur (00-07)?</span></li>
+      <li><span class="box"></span><span>Bestandsnamen correct (<code>VDK_Project_Type_Ratio_V01</code>)?</span></li>
+      <li><span class="box"></span><span>Renders in <code>07 Renders</code>?</span></li>
+      <li><span class="box"></span><span>Binnen deadline aangeleverd?</span></li>
     </ul>
   </section>
 
-  <!-- CLOSING -->
   <footer class="closing">
     <div class="text">
-      <em>VDK Productiehandboek Video.</em> Uitgave 01, 2026. Bedoeld om binnen kaders maximaal vakmanschap mogelijk te maken, niet om creativiteit dicht te timmeren. Vragen, twijfels, uitzonderingen: bel vóór de draaidag, niet na de upload.
+      <em>Kwaliteitsrichtlijnen Video.</em> VDK Groep, uitgave 01, 2026.
     </div>
     <div class="sig">
       <b>VDK Groep</b>
-      Brand &amp; Communicatie
+      Productiehandboek
     </div>
   </footer>
 
 </div>
 
 <script>
-  // Tap-to-toggle checks
   document.querySelectorAll('.checks ul li').forEach(li=>{
     li.addEventListener('click',()=>li.classList.toggle('done'));
   });
